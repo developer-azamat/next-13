@@ -5,15 +5,24 @@ import { FC } from "react"
 const Posts: FC<{data : PostType[]}> = ({data}) => {
 	return (
 		<>
-			{data.map(c => (
-				<div key={c.id}>
-					<Link href={`/posts/${c.id}`}>{c.title}</Link>
-				</div>
-			))}
+			<table>
+				<thead>
+					<th>ID</th>
+					<th>Body</th>
+				</thead>
+				<tbody>
+					{data.map(c => (
+						<tr key={c.id}>
+							<td>{c.id}</td>
+							<td>
+								<Link href={`/posts/${c.id}`}>{c.body}</Link>
+							</td>
+						</tr>
+					))}
+				</tbody>
+			</table>
 		</>
 	)
-	// console.log(data)
-	// return <p>helloo</p>
 }
 
 export default Posts
